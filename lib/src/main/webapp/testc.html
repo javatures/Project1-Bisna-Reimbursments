@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Login page</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class ="mypanel">
+
+     
+    </div>
+
+    
+
+<script >
+
+let swapi ='http://localhost:8080/projectdemo/hello';
+let resp = fetch(swapi,{
+    
+    headers:{'Content-Type':'application/json','Accept':'application/json'}
+
+})
+.then((resp)=>resp.json())
+.then((result)=>{console.log(result);
+
+    result.forEach(element => {
+    var dtext1 = `supid: ${element.sup_id} 
+    supfn: ${element.sup_fn} 
+    supln: ${element.sup_ln}`;
+    console.log(dtext1);
+    $(".mypanel").html(dtext1);  
+     
+  
+        
+    });
+    
+}
+    
+    )
+
+.catch(err=>{console.log('Error reading data'+err);});
+
+
+
+</script>
+
+</html>
